@@ -9,61 +9,66 @@
 import UIKit
 
 class TallyViewController: UIViewController {
-    var counter = 0
+    var counter = Counter()
     
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet var tapView: UIView?
-//    @IBOutlet var swipeView: UIView?
-//    @IBOutlet var longPressView: UIView?
+    
+    let defaults = UserDefaults.standard
+    var startDate = NSDateComponents()
     
     let tapRecognizer = UITapGestureRecognizer()
-//    let swipeRecognizer = UISwipeGestureRecognizer()
-//    let longPressRec = UILongPressGestureRecognizer()
+    //    let swipeRecognizer = UISwipeGestureRecognizer()
+    let longPressRecognizer = UILongPressGestureRecognizer()
     
+//    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    
+        
     func tappedView() {
-        updateTheCounter()
-    }
-
-    func updateTheCounter() {
-        counter += 1
-        counterLabel.text! = "\(counter)"
+        counter.update()
+        counterLabel.text! = counter.value
+        
+        if counter.shouldPresentAlert {
+            let alertController = UIAlertController(title: "New Hour", message:
+                "Log The Number Of Users: \(counter.value)", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            
+        
+            self.present(alertController, animated: true, completion: nil)
+            counter.reset()
+        }
     }
     
-//    func startTheCounter() {
-//        let dateComponents = NSDateComponents(),
-//        currentDate = NSDate()
-//        
-//        
-//    }
-
-//    func longPressedView(){
-//        let tapAlert = UIAlertController(title: "Long Pressed", message: "You just long pressed the long press view", preferredStyle: UIAlertControllerStyle.Alert)
-//        tapAlert.addAction(UIAlertAction(title: "OK", style: .Destructive, handler: nil))
-//        self.presentViewController(tapAlert, animated: true, completion: nil)
-//    }
+    func longPressedView() {
+        counter.reset()
+        counterLabel.text? = counter.value
+    }
     
-
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        tapRecognizer.addTarget(self, action: "tappedView")
-//        swipeRecognizer.addTarget(self, action: "swipedView")
-//        longPressRec.addTarget(self, action: "longPressedView")
+        tapRecognizer.addTarget(self, action: #selector(TallyViewController.tappedView))
+        //        swipeRecognizer.addTarget(self, action: "swipedView")
+        longPressRecognizer.addTarget(self, action: #selector(TallyViewController.longPressedView))
         
         
         tapView!.addGestureRecognizer(tapRecognizer)
-//        swipeView!.addGestureRecognizer(swipeView)
-//        longPressView!.addGestureRecognizer(longPressRec)
+        //        tapView!.addGestureRecognizer(swipeView)
+        tapView!.addGestureRecognizer(longPressRecognizer)
         
-        tapView!.userInteractionEnabled = true
-//        swipeView!.userInteractionEnabled = true
-//        longPressView!.userInteractionEnabled = true
+        tapView!.isUserInteractionEnabled = true
+       
+        counterLabel.text? = counter.value
+        
+        
+        super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490052FA1D09BF8600BA8582 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 490052F91D09BF8600BA8582 /* Property List.plist */; };
 		49A986891CA1C91F00161A2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A986881CA1C91F00161A2A /* AppDelegate.swift */; };
 		49A9868B1CA1C91F00161A2A /* TallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A9868A1CA1C91F00161A2A /* TallyViewController.swift */; };
 		49A9868E1CA1C91F00161A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A9868C1CA1C91F00161A2A /* Main.storyboard */; };
 		49A986901CA1C91F00161A2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A9868F1CA1C91F00161A2A /* Assets.xcassets */; };
 		49A986931CA1C91F00161A2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A986911CA1C91F00161A2A /* LaunchScreen.storyboard */; };
+		49F691E21CA2052800EC0BBE /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F691E11CA2052800EC0BBE /* Counter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490052F91D09BF8600BA8582 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		49A986851CA1C91F00161A2A /* CLC Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CLC Tally.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A986881CA1C91F00161A2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49A9868A1CA1C91F00161A2A /* TallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		49A9868F1CA1C91F00161A2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49A986921CA1C91F00161A2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49A986941CA1C91F00161A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F691E11CA2052800EC0BBE /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				49A986881CA1C91F00161A2A /* AppDelegate.swift */,
+				49F691E11CA2052800EC0BBE /* Counter.swift */,
 				49A9868A1CA1C91F00161A2A /* TallyViewController.swift */,
+				490052F91D09BF8600BA8582 /* Property List.plist */,
 				49A9868C1CA1C91F00161A2A /* Main.storyboard */,
 				49A9868F1CA1C91F00161A2A /* Assets.xcassets */,
 				49A986911CA1C91F00161A2A /* LaunchScreen.storyboard */,
@@ -96,6 +102,8 @@
 				TargetAttributes = {
 					49A986841CA1C91F00161A2A = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = K5825K8G3M;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -124,6 +132,7 @@
 			files = (
 				49A986931CA1C91F00161A2A /* LaunchScreen.storyboard in Resources */,
 				49A986901CA1C91F00161A2A /* Assets.xcassets in Resources */,
+				490052FA1D09BF8600BA8582 /* Property List.plist in Resources */,
 				49A9868E1CA1C91F00161A2A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +146,7 @@
 			files = (
 				49A9868B1CA1C91F00161A2A /* TallyViewController.swift in Sources */,
 				49A986891CA1C91F00161A2A /* AppDelegate.swift in Sources */,
+				49F691E21CA2052800EC0BBE /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +213,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -240,6 +251,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -249,10 +261,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "CLC Tally/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FreneticArray.CLC-Tally";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -260,10 +276,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "CLC Tally/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FreneticArray.CLC-Tally";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -286,6 +306,7 @@
 				49A986991CA1C91F00161A2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
