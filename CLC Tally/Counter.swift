@@ -45,12 +45,18 @@ class Counter: CustomStringConvertible {
     
     var description: String { get { return "\(count)" }}
     
-    func update() {
+    public func increment() {
         userLog.append(Date())
     }
     
-    func reset() {
+    public func reset() {
         userLog.removeAll(keepingCapacity: true)
+    }
+    
+    public func usersThisHour() -> Int {
+        let usersThisHour = log.filter { $0.0 == getTimeComponents(from: Date()).0 }
+        
+        return usersThisHour.count
     }
     
     func getTimeComponents(from date: Date) -> (Int, Int, Int) {

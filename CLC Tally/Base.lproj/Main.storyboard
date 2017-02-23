@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,11 +31,26 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trt-ay-6bg">
+                                        <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                                        <items/>
+                                    </toolbar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Hour: 0 Users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XU2-SZ-EcC">
+                                        <rect key="frame" x="8" y="571" width="143" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="XU2-SZ-EcC" firstAttribute="leading" secondItem="O43-MA-10K" secondAttribute="leadingMargin" id="NbU-lb-MOg"/>
                                     <constraint firstAttribute="trailing" secondItem="65C-tF-aIv" secondAttribute="trailing" id="OhQ-vl-4tl"/>
+                                    <constraint firstItem="Trt-ay-6bg" firstAttribute="centerY" secondItem="XU2-SZ-EcC" secondAttribute="centerY" id="Oyc-mb-NbR"/>
                                     <constraint firstItem="65C-tF-aIv" firstAttribute="leading" secondItem="O43-MA-10K" secondAttribute="leading" id="ab6-vB-GK3"/>
                                     <constraint firstItem="65C-tF-aIv" firstAttribute="centerY" secondItem="O43-MA-10K" secondAttribute="centerY" id="gxB-jy-ez7"/>
+                                    <constraint firstAttribute="bottom" secondItem="XU2-SZ-EcC" secondAttribute="bottom" constant="11" id="lWP-o6-MoN"/>
+                                    <constraint firstItem="Trt-ay-6bg" firstAttribute="leading" secondItem="65C-tF-aIv" secondAttribute="leading" id="oUq-p9-YZC"/>
+                                    <constraint firstItem="Trt-ay-6bg" firstAttribute="trailing" secondItem="65C-tF-aIv" secondAttribute="trailing" id="xZo-hA-ui6"/>
                                 </constraints>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-wD-WJ4">
@@ -60,9 +76,11 @@
                             <outletCollection property="gestureRecognizers" destination="JPX-OF-Slv" appends="YES" id="Yda-7D-6XF"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="9ew-4q-bcX"/>
                     <connections>
                         <outlet property="counterLabel" destination="65C-tF-aIv" id="LOa-Jb-ckS"/>
                         <outlet property="tapView" destination="O43-MA-10K" id="JUu-tJ-XjJ"/>
+                        <outlet property="toolbarLabel" destination="XU2-SZ-EcC" id="OhG-I0-kJ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

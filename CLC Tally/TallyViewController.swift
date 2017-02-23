@@ -14,9 +14,7 @@ class TallyViewController: UIViewController {
     
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet var tapView: UIView?
-    
-    let defaults = UserDefaults.standard
-    var startDate = NSDateComponents()
+    @IBOutlet weak var toolbarLabel: UILabel!
     
     let tapRecognizer = UITapGestureRecognizer()
     //    let swipeRecognizer = UISwipeGestureRecognizer()
@@ -27,7 +25,7 @@ class TallyViewController: UIViewController {
     
     
     func tappedView() {
-        counter.update()
+        counter.increment()
         update()
     }
     
@@ -38,6 +36,9 @@ class TallyViewController: UIViewController {
     
     func update() {
         counterLabel.text? = String(counter.count)
+        
+        let usersThisHour = counter.usersThisHour()
+        toolbarLabel.text? = "This Hour: \(usersThisHour) Users"
     }
     
     override func viewDidLoad() {
