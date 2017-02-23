@@ -9,9 +9,10 @@
 import UIKit
 import SafariServices
 
-class TallyViewController: UIViewController {
+class TallyViewController: UIViewController,UIViewControllerTransitioningDelegate {
     
     var counter = Counter()
+    let customPresentAnimationController = CustomPresentAnimationController()
     
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet var tapView: UIView?
@@ -78,16 +79,30 @@ class TallyViewController: UIViewController {
         tapView?.addGestureRecognizer(longPressRecognizer)
         
         tapView?.isUserInteractionEnabled = true
-        update()
-      
         
-        navigationBar.backgroundColor = UIColor.gray
-
+        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView 
+        statusBar?.backgroundColor = UIColor.gray
+        
+        update()
         
         super.viewDidLoad()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destinationVC = segue.destination
+        if let navcon = destinationVC as? UINavigationController {
+            destinationVC = navcon.visibleViewController ?? destinationVC
+        }
+        
+        if let vc = destinationVC as? UsersTableViewController {
+            vc.users = self.counter.log
+            vc.transitioningDelegate = self
+        }
+    }
     
+    func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return customPresentAnimationController
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

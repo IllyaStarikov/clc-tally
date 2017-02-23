@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49134C331E5FA69F007D37B7 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49134C321E5FA69F007D37B7 /* AboutViewController.swift */; };
+		49A8CCCC1E5F8C490064E71A /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8CCCB1E5F8C490064E71A /* UsersTableViewController.swift */; };
+		49A8CCCE1E5FA0D40064E71A /* CustomPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8CCCD1E5FA0D40064E71A /* CustomPresentAnimationController.swift */; };
 		49A986891CA1C91F00161A2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A986881CA1C91F00161A2A /* AppDelegate.swift */; };
 		49A9868B1CA1C91F00161A2A /* TallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A9868A1CA1C91F00161A2A /* TallyViewController.swift */; };
 		49A9868E1CA1C91F00161A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A9868C1CA1C91F00161A2A /* Main.storyboard */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49134C321E5FA69F007D37B7 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		49A8CCCB1E5F8C490064E71A /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		49A8CCCD1E5FA0D40064E71A /* CustomPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentAnimationController.swift; sourceTree = "<group>"; };
 		49A986851CA1C91F00161A2A /* CLC Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CLC Tally.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A986881CA1C91F00161A2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49A9868A1CA1C91F00161A2A /* TallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 				49F691E11CA2052800EC0BBE /* Counter.swift */,
 				49A986881CA1C91F00161A2A /* AppDelegate.swift */,
 				49A9868A1CA1C91F00161A2A /* TallyViewController.swift */,
+				49A8CCCD1E5FA0D40064E71A /* CustomPresentAnimationController.swift */,
+				49A8CCCB1E5F8C490064E71A /* UsersTableViewController.swift */,
+				49134C321E5FA69F007D37B7 /* AboutViewController.swift */,
 				49A9868C1CA1C91F00161A2A /* Main.storyboard */,
 				49A9868F1CA1C91F00161A2A /* Assets.xcassets */,
 				49A986911CA1C91F00161A2A /* LaunchScreen.storyboard */,
@@ -140,8 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49134C331E5FA69F007D37B7 /* AboutViewController.swift in Sources */,
 				49A9868B1CA1C91F00161A2A /* TallyViewController.swift in Sources */,
 				49A986891CA1C91F00161A2A /* AppDelegate.swift in Sources */,
+				49A8CCCE1E5FA0D40064E71A /* CustomPresentAnimationController.swift in Sources */,
+				49A8CCCC1E5F8C490064E71A /* UsersTableViewController.swift in Sources */,
 				49F691E21CA2052800EC0BBE /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
