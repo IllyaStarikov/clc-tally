@@ -12,3 +12,5 @@ The counter is quite simple:
 And that's it. At the end of this shift, press the list icon to get a comprehensive list of everyone (broken down by the hour) that has entered the lab.
 
 The Safari icon takes you directly to the Github page, and the about simply summarizes the UI of CLC Tally.
+
+Icon credits go to [Icon8](https://icons8.com/).
