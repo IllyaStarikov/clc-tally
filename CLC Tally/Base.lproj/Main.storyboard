@@ -22,63 +22,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O43-MA-10K">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <navigationBar opaque="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUq-vC-gHB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="CLC Tally" id="Dke-GP-qjh"/>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFd-EB-jce">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem image="Numbered List Filled" id="0ei-qs-edB">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem image="Info" id="T9l-8h-gNm">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
+                                    <barButtonItem image="Safari" id="Vbn-OB-BOZ">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="openInSafari:" destination="BYZ-38-t0r" id="Whw-hs-vut"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Hour: 0 Users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XU2-SZ-EcC">
+                                <rect key="frame" x="216" y="635" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O43-MA-10K">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="redraw" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65C-tF-aIv">
-                                        <rect key="frame" x="0.0" y="204" width="375" height="195"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="redraw" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65C-tF-aIv">
+                                        <rect key="frame" x="0.0" y="182" width="375" height="195"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="150"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trt-ay-6bg">
-                                        <rect key="frame" x="0.0" y="559" width="375" height="44"/>
-                                        <items/>
-                                    </toolbar>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Hour: 0 Users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XU2-SZ-EcC">
-                                        <rect key="frame" x="8" y="571" width="143" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.094125650823116302" green="0.094266824424266815" blue="0.085922412574291229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="XU2-SZ-EcC" firstAttribute="leading" secondItem="O43-MA-10K" secondAttribute="leadingMargin" id="NbU-lb-MOg"/>
-                                    <constraint firstAttribute="trailing" secondItem="65C-tF-aIv" secondAttribute="trailing" id="OhQ-vl-4tl"/>
-                                    <constraint firstItem="Trt-ay-6bg" firstAttribute="centerY" secondItem="XU2-SZ-EcC" secondAttribute="centerY" id="Oyc-mb-NbR"/>
-                                    <constraint firstItem="65C-tF-aIv" firstAttribute="leading" secondItem="O43-MA-10K" secondAttribute="leading" id="ab6-vB-GK3"/>
-                                    <constraint firstItem="65C-tF-aIv" firstAttribute="centerY" secondItem="O43-MA-10K" secondAttribute="centerY" id="gxB-jy-ez7"/>
-                                    <constraint firstAttribute="bottom" secondItem="XU2-SZ-EcC" secondAttribute="bottom" constant="11" id="lWP-o6-MoN"/>
-                                    <constraint firstItem="Trt-ay-6bg" firstAttribute="leading" secondItem="65C-tF-aIv" secondAttribute="leading" id="oUq-p9-YZC"/>
-                                    <constraint firstItem="Trt-ay-6bg" firstAttribute="trailing" secondItem="65C-tF-aIv" secondAttribute="trailing" id="xZo-hA-ui6"/>
+                                    <constraint firstItem="65C-tF-aIv" firstAttribute="centerY" secondItem="O43-MA-10K" secondAttribute="centerY" id="SaY-yb-bgR"/>
+                                    <constraint firstItem="65C-tF-aIv" firstAttribute="leading" secondItem="O43-MA-10K" secondAttribute="leading" id="Xz9-FO-VVm"/>
+                                    <constraint firstAttribute="trailing" secondItem="65C-tF-aIv" secondAttribute="trailing" id="fXV-1m-IxL"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-wD-WJ4">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="CLC Tally" id="XER-S2-iDk"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="O43-MA-10K" firstAttribute="top" secondItem="EWV-wD-WJ4" secondAttribute="bottom" id="2Na-38-GVF"/>
-                            <constraint firstAttribute="trailing" secondItem="O43-MA-10K" secondAttribute="trailing" id="3og-8D-BNv"/>
-                            <constraint firstItem="O43-MA-10K" firstAttribute="leading" secondItem="EWV-wD-WJ4" secondAttribute="leading" id="6yM-LZ-tjg"/>
-                            <constraint firstItem="O43-MA-10K" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="KYm-nu-QTG"/>
-                            <constraint firstItem="O43-MA-10K" firstAttribute="trailing" secondItem="EWV-wD-WJ4" secondAttribute="trailing" id="OcG-WK-CaA"/>
-                            <constraint firstItem="O43-MA-10K" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="64" id="TJX-lk-wVU"/>
-                            <constraint firstItem="O43-MA-10K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WCu-it-oZt"/>
+                            <constraint firstItem="aFd-EB-jce" firstAttribute="trailing" secondItem="O43-MA-10K" secondAttribute="trailing" id="0DH-X8-AYj"/>
+                            <constraint firstItem="aFd-EB-jce" firstAttribute="leading" secondItem="O43-MA-10K" secondAttribute="leading" id="0U5-fc-Kdv"/>
+                            <constraint firstAttribute="trailing" secondItem="nUq-vC-gHB" secondAttribute="trailing" id="5EL-qb-W2m"/>
+                            <constraint firstItem="nUq-vC-gHB" firstAttribute="leading" secondItem="O43-MA-10K" secondAttribute="leading" id="7wp-Aw-opq"/>
+                            <constraint firstItem="XU2-SZ-EcC" firstAttribute="centerY" secondItem="aFd-EB-jce" secondAttribute="centerY" id="BwU-cZ-rwL"/>
+                            <constraint firstItem="aFd-EB-jce" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="EyL-qP-RsZ"/>
+                            <constraint firstItem="nUq-vC-gHB" firstAttribute="bottom" secondItem="O43-MA-10K" secondAttribute="top" id="I5C-wo-ylZ"/>
+                            <constraint firstItem="nUq-vC-gHB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dlb-da-S6W"/>
+                            <constraint firstItem="XU2-SZ-EcC" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="eBF-Nk-FEa"/>
+                            <constraint firstItem="nUq-vC-gHB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qai-4a-p6w"/>
+                            <constraint firstItem="aFd-EB-jce" firstAttribute="top" secondItem="O43-MA-10K" secondAttribute="bottom" id="qdb-Er-VBR"/>
+                            <constraint firstItem="nUq-vC-gHB" firstAttribute="trailing" secondItem="O43-MA-10K" secondAttribute="trailing" id="rqY-9T-RvX"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="kea-Vk-j0j" appends="YES" id="feh-dg-5lF"/>
                             <outletCollection property="gestureRecognizers" destination="JPX-OF-Slv" appends="YES" id="Yda-7D-6XF"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="9ew-4q-bcX"/>
+                    <toolbarItems>
+                        <barButtonItem image="Numbered List Filled" style="plain" id="bch-Ge-K5m">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem image="Info" id="afv-Um-zEY">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem image="Safari" id="UB2-84-QwW">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="openInSafari:" destination="BYZ-38-t0r" id="7Qo-Gq-huC"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="counterLabel" destination="65C-tF-aIv" id="LOa-Jb-ckS"/>
+                        <outlet property="navigationBar" destination="nUq-vC-gHB" id="FfL-bm-aP9"/>
                         <outlet property="tapView" destination="O43-MA-10K" id="JUu-tJ-XjJ"/>
                         <outlet property="toolbarLabel" destination="XU2-SZ-EcC" id="OhG-I0-kJ1"/>
                     </connections>
@@ -90,4 +124,9 @@
             <point key="canvasLocation" x="210.40000000000001" y="326.98650674662673"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Info" width="20" height="20"/>
+        <image name="Numbered List Filled" width="20" height="20"/>
+        <image name="Safari" width="20" height="20"/>
+    </resources>
 </document>

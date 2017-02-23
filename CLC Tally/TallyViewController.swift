@@ -7,14 +7,18 @@
 //
 
 import UIKit
-import Foundation
+import SafariServices
 
 class TallyViewController: UIViewController {
+    
     var counter = Counter()
     
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet var tapView: UIView?
     @IBOutlet weak var toolbarLabel: UILabel!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    private var githubURL: String = "https://github.com/IllyaStarikov/CLC-Tally"
     
     let tapRecognizer = UITapGestureRecognizer()
     let upSwipeRecognizer = UISwipeGestureRecognizer()
@@ -22,6 +26,15 @@ class TallyViewController: UIViewController {
     let longPressRecognizer = UILongPressGestureRecognizer()
     
     
+    @IBAction func reset(_ sender: UIBarButtonItem) {
+        counter.reset()
+        update()
+    }
+    
+    @IBAction func openInSafari(_ sender: UIBarButtonItem) {
+        let safariVI = SFSafariViewController(url: NSURL(string: self.githubURL)! as URL)
+        self.present(safariVI, animated: true, completion: nil)
+    }
     
     func tappedView() {
         counter.increment()
@@ -66,9 +79,15 @@ class TallyViewController: UIViewController {
         
         tapView?.isUserInteractionEnabled = true
         update()
+      
+        
+        navigationBar.backgroundColor = UIColor.gray
+
         
         super.viewDidLoad()
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
