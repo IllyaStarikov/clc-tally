@@ -13,4 +13,4 @@ And that's it. At the end of this shift, press the list icon to get a comprehens
 
 The Safari icon takes you directly to the Github page, and the about simply summarizes the UI of CLC Tally.
 
-Icon credits go to [Icon8](https://icons8.com/).
+Icon credits go to [Icon8](https://icons8.com/). Mockup courtesy of [MockuPhone](http://mockuphone.com/).
