@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class TallyViewController: UIViewController {
     var counter = Counter()
@@ -21,30 +22,23 @@ class TallyViewController: UIViewController {
     //    let swipeRecognizer = UISwipeGestureRecognizer()
     let longPressRecognizer = UILongPressGestureRecognizer()
     
-//    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    //    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     
-        
+    
     func tappedView() {
         counter.update()
-        counterLabel.text! = counter.value
-        
-        if counter.shouldPresentAlert {
-            let alertController = UIAlertController(title: "New Hour", message:
-                "Log The Number Of Users: \(counter.value)", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-            
-        
-            self.present(alertController, animated: true, completion: nil)
-            counter.reset()
-        }
+        update()
     }
     
     func longPressedView() {
         counter.reset()
-        counterLabel.text? = counter.value
+        update()
     }
     
+    func update() {
+        counterLabel.text? = String(counter.count)
+    }
     
     override func viewDidLoad() {
         tapRecognizer.addTarget(self, action: #selector(TallyViewController.tappedView))
@@ -57,8 +51,8 @@ class TallyViewController: UIViewController {
         tapView!.addGestureRecognizer(longPressRecognizer)
         
         tapView!.isUserInteractionEnabled = true
-       
-        counterLabel.text? = counter.value
+        
+        update()
         
         
         super.viewDidLoad()

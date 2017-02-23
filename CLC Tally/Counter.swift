@@ -10,101 +10,57 @@ import Foundation
 
 class Counter: CustomStringConvertible {
     
-    fileprivate var counter: Int {
+    public var count: Int {
         get {
             return userLog.count
-        } 
+        }
     }
     
-    fileprivate var startValue = 0
-    fileprivate var firstTap = true
-    fileprivate var currentHour = 0
-    
-    var userLog: [String] {
-        get {
-            if let returnValue = UserDefaults.standard.object(forKey: "log") as? [String] {
-                return returnValue
-            } else {
-                return [String]()
+    public var log: [(Int, Int, Int)] {
+        if let dates = UserDefaults.standard.object(forKey: "log") as? [Date] {
+            var descriptions = [(Int, Int, Int)]()
+            
+            for date in dates {
+                descriptions.append(getTimeComponents(from: date))
             }
+            
+            return descriptions
+        } else {
+            return [(Int, Int, Int)]()
+        }
+    }
+    
+    private var userLog: [Date] {
+        get {
+            if let dates = UserDefaults.standard.object(forKey: "log") as? [Date] {
+                return dates
+            }
+            
+            return [Date]()
         } set {
-            UserDefaults.standard.set(newValue, forKey: "log")
+            UserDefaults.standard.set(newValue as AnyObject, forKey: "log")
             UserDefaults.standard.synchronize()
         }
-// REFERENCE 
-//        var food: [String] {
-//            get {
-//                if let returnValue = NSUserDefaults.standardUserDefaults().objectForKey("food") as? [String] {
-//                    return returnValue
-//                } else {
-//                    return ["muesli", "banana"] //Default value
-//                }
-//            }
-//            set {
-//                NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "food")
-//                NSUserDefaults.standardUserDefaults().synchronize()
-//            }
-//        }
-
     }
     
-    fileprivate var startTime = Counter.nextHourDate()
-    
-    var description: String { get { return "\(counter)" }}
-    var value: String { get { return "\(counter)" }}
-    var initialValue: String { get { return "\(startValue)" }}
-    
-    
-    fileprivate var hoursSincePassed: Int {
-        get {
-            if let start = startTime {
-                let calendar = Calendar.current
-                let date = Date()
-                let currentMinutes = (calendar as NSCalendar).components(NSCalendar.Unit.minute, from: date).minute
-                let startMinutes = (calendar as NSCalendar).components(NSCalendar.Unit.minute, from: start).minute
-            
-                return Int(abs(startMinutes! - currentMinutes!) / 60)
-            }
-            
-            return 0
-        }
-    }
+    var description: String { get { return "\(count)" }}
     
     func update() {
-        func getTimeDescription() -> String? {
-            let date = Date()
-            let calendar = Calendar.current
-            let hours = (calendar as NSCalendar).components(NSCalendar.Unit.hour, from: date)
-            let minutes = (calendar as NSCalendar).components(NSCalendar.Unit.minute, from: date)
-            let seconds = (calendar as NSCalendar).component(NSCalendar.Unit.second, from: date)
-            
-            return "\(hours):\(minutes):\(seconds)"
-        }
-        
-        userLog.append(getTimeDescription()!)
+        userLog.append(Date())
     }
     
     func reset() {
         userLog.removeAll(keepingCapacity: true)
     }
     
-    var shouldPresentAlert: Bool {
-        get {
-            if hoursSincePassed > currentHour {
-                currentHour += 1
-                return true
-            }
-            return false
-        }
-    }
-    
-    static func nextHourDate() -> Date? {
+    func getTimeComponents(from date: Date) -> (Int, Int, Int) {
         let calendar = Calendar.current
-        let date = Date()
-        let minuteComponent = (calendar as NSCalendar).components(NSCalendar.Unit.minute, from: date)
-        var components = DateComponents()
-        components.minute = 60 - minuteComponent.minute!
-        return (calendar as NSCalendar).date(byAdding: components, to: date, options: NSCalendar.Options())
+        
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        
+        return (hour, minutes, seconds)
     }
     
 }
