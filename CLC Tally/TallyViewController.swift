@@ -17,10 +17,9 @@ class TallyViewController: UIViewController {
     @IBOutlet weak var toolbarLabel: UILabel!
     
     let tapRecognizer = UITapGestureRecognizer()
-    //    let swipeRecognizer = UISwipeGestureRecognizer()
+    let upSwipeRecognizer = UISwipeGestureRecognizer()
+    let downSwipeRecognizer = UISwipeGestureRecognizer()
     let longPressRecognizer = UILongPressGestureRecognizer()
-    
-    //    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     
     
@@ -34,6 +33,16 @@ class TallyViewController: UIViewController {
         update()
     }
     
+    func upSwipedView() {
+        counter.increment()
+        update()
+    }
+    
+    func downSwipedView() {
+        counter.decrement()
+        update()
+    }
+    
     func update() {
         counterLabel.text? = String(counter.count)
         
@@ -42,19 +51,21 @@ class TallyViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        tapRecognizer.addTarget(self, action: #selector(TallyViewController.tappedView))
-        //        swipeRecognizer.addTarget(self, action: "swipedView")
-        longPressRecognizer.addTarget(self, action: #selector(TallyViewController.longPressedView))
+        tapRecognizer.addTarget(self, action: #selector(tappedView))
+        upSwipeRecognizer.addTarget(self, action: #selector(upSwipedView))
+        downSwipeRecognizer.addTarget(self, action: #selector(downSwipedView))
+        longPressRecognizer.addTarget(self, action: #selector(longPressedView))
         
+        upSwipeRecognizer.direction = .up
+        downSwipeRecognizer.direction = .down
         
-        tapView!.addGestureRecognizer(tapRecognizer)
-        //        tapView!.addGestureRecognizer(swipeView)
-        tapView!.addGestureRecognizer(longPressRecognizer)
+        tapView?.addGestureRecognizer(tapRecognizer)
+        tapView?.addGestureRecognizer(upSwipeRecognizer)
+        tapView?.addGestureRecognizer(downSwipeRecognizer)
+        tapView?.addGestureRecognizer(longPressRecognizer)
         
-        tapView!.isUserInteractionEnabled = true
-        
+        tapView?.isUserInteractionEnabled = true
         update()
-        
         
         super.viewDidLoad()
     }

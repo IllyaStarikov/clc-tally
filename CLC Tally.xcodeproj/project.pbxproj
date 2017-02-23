@@ -58,8 +58,8 @@
 		49A986871CA1C91F00161A2A /* CLC Tally */ = {
 			isa = PBXGroup;
 			children = (
-				49A986881CA1C91F00161A2A /* AppDelegate.swift */,
 				49F691E11CA2052800EC0BBE /* Counter.swift */,
+				49A986881CA1C91F00161A2A /* AppDelegate.swift */,
 				49A9868A1CA1C91F00161A2A /* TallyViewController.swift */,
 				490052F91D09BF8600BA8582 /* Property List.plist */,
 				49A9868C1CA1C91F00161A2A /* Main.storyboard */,

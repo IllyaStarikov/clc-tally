@@ -49,6 +49,10 @@ class Counter: CustomStringConvertible {
         userLog.append(Date())
     }
     
+    public func decrement() {
+        userLog.removeLast()
+    }
+    
     public func reset() {
         userLog.removeAll(keepingCapacity: true)
     }
