@@ -50,7 +50,9 @@ class Counter: CustomStringConvertible {
     }
     
     public func decrement() {
-        userLog.removeLast()
+        if !userLog.isEmpty {
+            userLog.removeLast()
+        }
     }
     
     public func reset() {
